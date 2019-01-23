@@ -1,18 +1,16 @@
 ---
-declared-services:
-  myObjectStorage:
-    label: Object-Storage
-    plan: Free
-  myComposeMySQL:
-    label: compose-for-mysql
-    plan: Standard
-    
 applications:
-- name: WordPressForBluemix
-  memory: 256M #The maximum memory to allocate to each application instance
-  instances: 1 #The number of instances of the application to start
-  buildpack: https://github.com/cloudfoundry/php-buildpack
-  random-route: true
-  services:
-  - myObjectStorage
-  - myComposeMySQL
+- name: workpress-blog
+  memory: 256M
+  instances: 1
+  buildpack: "https://github.com/cloudfoundry/php-buildpack#v4.3.7"
+  host: francesco-blog
+  domain: mybluemix.net
+  env:
+    DB_HOST: host:port
+    DB_USER: user
+    DB_PASSWORD: password
+    DB_NAME: db
+    ACCESS_KEY_ID: cos_accesskey
+    SECRET_ACCESS_KEY: cos_secretkey
+    COS_ENDPOINT: cos_endpoint
