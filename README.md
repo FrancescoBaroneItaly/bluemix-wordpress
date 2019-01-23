@@ -8,7 +8,7 @@ your exact needs.
 
 WordPress on Bluemix uses the [Composer package manager](https://getcomposer.org) to install the 
 [wordpress package from johnpbloch](https://packagist.org/packages/johnpbloch/wordpress) 
-and configures the installation to use Compose (MySQL) for data and IBM Object Storage 
+and configures the installation to use Compose (MySQL) for data and IBM Cloud Object Storage 
 for media.
 
 [![Deploy to Bluemix](https://bluemix.net/deploy/button_x2.png)](https://bluemix.net/deploy?repository=https://github.com/ibmjstart/bluemix-wordpress)

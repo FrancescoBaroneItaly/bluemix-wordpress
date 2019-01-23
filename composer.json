@@ -2,10 +2,6 @@
     "repositories": [
         {
           "type": "vcs",
-          "url": "https://github.com/ibmjstart/wp-bluemix-objectstorage.git"
-        },
-        {
-          "type": "vcs",
           "url": "https://github.com/ibmjstart/wp-bluemix-config.git"
         },
         {
@@ -17,7 +13,7 @@
           "url": "https://github.com/php-opencloud/openstack.git"
         }
     ],
-    
+
     "scripts": {
         "pre-install-cmd" : [
             "curl https://api.github.com/rate_limit"
@@ -27,28 +23,31 @@
             "mv vendor/ibmjstart/wp-bluemix-config/.user.ini htdocs",
             "mv vendor/ibmjstart/wp-bluemix-config/wp-config.php htdocs",
             "mv vendor htdocs/vendor",
-            "mv lib/.htaccess htdocs"
-        ],
-        "post-update-cmd" : [
-            "mv vendor/ibmjstart/wp-bluemix-config/mu-plugins htdocs/wp-content/mu-plugins",
-            "mv vendor/ibmjstart/wp-bluemix-config/.user.ini htdocs",
-            "mv vendor/ibmjstart/wp-bluemix-config/wp-config.php htdocs",
-            "mv vendor htdocs/vendor",
-            "mv lib/.htaccess htdocs"
+            "mv lib/.htaccess htdocs",
+            "mv lib/wp-config.php htdocs",
+            "mv lib/ibm-provider.php htdocs/wp-content/plugins/amazon-s3-and-cloudfront/classes/providers",
+            "mv lib/amazon-s3-and-cloudfront.php htdocs/wp-content/plugins/amazon-s3-and-cloudfront/classes"
         ]
+
     },
 
     "require": {
         "ext-gd"                                      : "*",
         "johnpbloch/wordpress"                        : "*",
-        "ibmjstart/wp-bluemix-objectstorage"          : "~2.1.1",
+        "wpackagist-plugin/amazon-s3-and-cloudfront"  : "*",
         "ibmjstart/wp-bluemix-config"                 : "dev-master",
-        "wpackagist-plugin/stops-core-theme-and-plugin-updates": "*",
-        "wpackagist-plugin/sendgrid-email-delivery-simplified": "*",
         "wpackagist-plugin/wp-super-cache"            : "*",
+        "wpackagist-theme/twentytwelve"               : "*",
         "wpackagist-theme/twentyfourteen"             : "*",
-        "wpackagist-theme/twentyfifteen"             : "*",
-        "wpackagist-theme/twentysixteen"               : "*"
+        "wpackagist-theme/twentyfifteen"              : "*",
+        "wpackagist-theme/twentysixteen"              : "*",
+        "wpackagist-plugin/jetpack"            : "*",
+        "wpackagist-plugin/social-pug"            : "*",
+        "wpackagist-plugin/social-media-buttons-toolbar"            : "*",
+        "wpackagist-plugin/post-title-colors"            : "*",
+        "wpackagist-plugin/donation-button"                               : "*",
+        "wpackagist-plugin/crayon-syntax-highlighter"            : "*",
+        "wpackagist-plugin/social-warfare"            : "3.3.*"
     },
 
     "extra": {
@@ -58,6 +57,6 @@
         "htdocs/wp-content/themes/{$name}/"  : ["type:wordpress-theme"]
       }
     },
-    "minimum-stability" : "dev",
+    "minimum-stability" : "stable",
     "prefer-stable": true
 }
